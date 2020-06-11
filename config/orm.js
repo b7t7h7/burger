@@ -1,27 +1,43 @@
-// MySQL connection setup
-var mysql = require("mysql");
-var connection;
-// setup for JawsDB
-if (process.env.JAWSDB_URL) {
-    connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-    connection = mysql.createConnection({
-        host: "localhost",
-        port: 3306,
-        user: "root",
-        password: "password",
-        database: "burgers_db"
-    });
+// ORM object made by myself
+var connection = require("./connection.js");
 
+let orm = {
+    // selectAll method
+    all: (getTable, callback) => {
+        const queryStr = "SELECT * FROM ??";
+        connection.query(queryStr, getTable, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            callback(result) // run the callback function with result as argument
+        })
+    },
+    // insertOne method
+    create: (newBurger, callback) => {
+        const queryStr = "INSERT INTO burgers (burger_name) VALUES (?)";
+        connection.query(queryStr, newBurger, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            // run the callback function from burgers_controller.js
+            // with result as argument for response.json({id: result.insertId}) 
+            callback(result)
+        })
+    },
+
+    // updateOne method
+    update: (selectedID, callback) => {
+        const queryStr = "UPDATE burgers SET devoured = NOT devoured WHERE id = ?";
+        connection.query(queryStr, selectedID, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            // run the callback function from burgers_controller.js
+            // with result as argument for response.json({id: result.insertId}) 
+            callback(result)
+        })
+    }
 }
 
-connection.connect(function (err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-    }
-    console.log("connected as id " + connection.threadId);
-});
-
-// export connection
-module.exports = connection;
+// export orm object
+module.exports = orm;
