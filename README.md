@@ -82,19 +82,3 @@ All the recommended files and directories from the steps above should look like 
         └── main.handlebars
 ```
 
-## Programmer's Notes
-* `app.use(express.urlencoded({ extended: true }));` **urlencoded** encodes certain characters in a URL by replacing them with one or more character triplets that consist of the percent character "%" followed by two hexadecimal digits. The two hexadecimal digits of the triplet(s) represent the numeric value of the replaced character.
-
-* `app.use(express.json());` parses INCOMING requests with JSON payloads and s based on a body parser. ([source] (https://expressjs.com/en/api.html))
-
-* Using ES6 for jQuery Click Event methods won't work:
-        * Doesn't work for $(this) method: 
-```
-        $(".btn-burger").on("click", () => {
-                var selectedID = $(this).data("id");
-```
-        * You need to spell out function ()
-```
-        $(".btn-burger").on("click", function() {
-                var selectedID = $(this).data("id");   
-```
