@@ -1,6 +1,4 @@
-# Burger App using a custom ORM
-[Heroku Website](http://oc-burger.herokuapp.com/)
-The Burger App is burger logger that uses MySQL, Node, Express, Handlebars and an ORM made from scratch. The app also follows the MVC design pattern and uses Node and MySQL to query and route data, and Handlebars to generate HTML from templates.
+In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
 
 ## Overview
 * Eat-Da-Burger! is a restaurant app that lets users names a burger they'd like to eat which will be added to a MySQL database.
