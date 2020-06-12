@@ -100,8 +100,3 @@ All the recommended files and directories from the steps above should look like 
         $(".btn-burger").on("click", function() {
                 var selectedID = $(this).data("id");   
 ```
-
-## SQL Notes
-* The **??** signs are for swapping out *table* or *column* names.
-* The **?** signs are for swapping out other *values*.
-* [This link](https://en.wikipedia.org/wiki/SQL_injection) helps show how to avoid SQL injection.
