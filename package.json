@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/b7t7h7/burger",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.2",
     "mysql": "^2.16.0"
   }
